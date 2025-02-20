@@ -165,20 +165,22 @@ list.appendChild(item6); //adicionar item
 
 //Missão 2 - Botão Voltar ao Top
 
-let button = document.createElement('button'); //criar item
-button.textContent = 'Voltar ao Topo'; 
+let button = document.createElement('button'); //criar
+button.textContent = 'Voltar ao Topo';
 
-document.body.appendChild(button); //adicionar
-//ver posição do botão
-//adicionar event
+document.body.appendChild(button); //
 
+button.style.position = 'fixed';
+button.style.bottom = '20px';
+button.style.right = '20px';
+button.style.display = 'none'; //ocultar ao inicio
 
-//Missão 3 - Formulário Turbinado
+window.onscroll = () => button.style.display = window.scrollY > 200 ? 'block' : 'none'; //scroll
 
-
-//Missão 4 - Desafios Extras - Mestre dos Modais/APIs
-
-//Pesquisar APIs
+//voltar ao topo
+button.onclick = function() {
+    window.scrollTo(0, 0);
+}
 
 
 
