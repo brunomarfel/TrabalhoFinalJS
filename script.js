@@ -73,6 +73,54 @@
 //     });
 // });
 
+//alteração de cores
+
+
+
+
+
+
+
+document.body.style.backgroundColor = "#F4F4F4";  //cor corpo
+
+
+let sections = ['sobre', 'cursos', 'contato'];
+
+        sections.forEach(id => {
+        let section = document.getElementById(id);
+        section.style.border = "2px solid #4D6376";
+    });
+
+
+
+
+// function centralizarTitulos(id) {
+//     let titulo = document.querySelector(`#${id} h2`);
+//     if (titulo) {
+//       titulo.style.textAlign = 'center';
+//     }
+//   }
+  
+//   centralizarTitulos('sobre');
+//   centralizarTitulos('cursos');
+//   centralizarTitulos('contato');
+
+  let sections2 = ['sobre', 'cursos', 'contato'];
+
+sections.forEach(id => {
+    centralizarTitulos(id);
+});
+
+function centralizarTitulos(id) {
+    let titulo = document.querySelector(`#${id} h2`);
+    if (titulo) {
+        titulo.style.textAlign = 'center';
+    }
+}
+
+
+
+
 
 let cards = document.getElementById('cursos').querySelectorAll('.card'); // Chamar elemento
 
