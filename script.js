@@ -1,6 +1,8 @@
 //Trabalho Final JS Bruno França
 
-//Missão 1 - Formulário
+//MISSAO 1 - FORMULARIO, CARDS E LISTA
+
+//FORMULARIO
         
 //     document.getElementById("formulario-contato").addEventListener('submit', function(event) {
 //     event.preventDefault(); 
@@ -15,17 +17,78 @@
 //     }
 // }); 
 
-    document.getElementById("formulario-contato").addEventListener("submit", function(event) {
+
+//CARDS
+
+let cards = document.getElementById('cursos').querySelectorAll('.card'); // Chamar elemento
+
+cards.forEach(card => { //forEach: percorrer cada um
+    card.style.width = '250px'; //tamanho fixo
+    card.style.height = '400px'; //tamanho fixo
+   
+    let img = card.querySelector('img'); //chamar elemento
+    if (img) {
+        img.style.width = '100%'; //tamanho fixo
+        img.style.height = '40%'; //tamanho fixo
+    }
+
+    card.addEventListener('mouseover', () => { //evento pré-hover
+        card.style.transform = 'scale(1.1)'; 
+    });
+
+    card.addEventListener('mouseout', () => { //evento pós-hover
+        card.style.transform = 'scale(1.0)'; 
+    });
+});
+
+//LISTA
+
+let list = document.getElementById('sobre').querySelector('ul'); //chamar elemento
+
+let item5 = document.createElement('li'); //criar item
+item5.textContent = 'Comunicação Digital';
+
+list.appendChild(item5); //adicionar item
+
+let item6 = document.createElement('li'); //criar item
+item6.textContent = 'Formação Formadores';
+
+list.appendChild(item6); //adicionar item
+
+
+//MISSAO 2 - BOTAO VOLTAR AO TOP 
+
+let button = document.createElement('button'); //criar
+button.textContent = 'Voltar ao Topo'; //texto do botão
+document.body.appendChild(button); //adicionar
+
+//estilos
+button.style.position = 'fixed'; 
+button.style.bottom = '20px';
+button.style.right = '20px';
+button.style.display = 'none'; //ocultar no inicio
+
+window.onscroll = () => button.style.display = window.scrollY > 200 ? 'block' : 'none'; //exibir no scroll
+
+button.onclick = function() { //funçao voltar ao topo
+    window.scrollTo(0, 0);
+}
+
+
+//MISSAO 3 - FORMULARIO TURBINADO
+
+    document.getElementById("formulario-contato").addEventListener("submit", function(event) { //adiconar evento
     event.preventDefault(); 
 
-    let nome = document.getElementById("nome");
+    let nome = document.getElementById("nome"); //pegar os dados do formularios
     let email = document.getElementById("email");
     let contato = document.getElementById("contatoFormulario");
     let regiao = document.getElementById("regiao");
     let mensagem = document.getElementById("mensagem");
 
-    let temErro = false;
+    let temErro = false; //
 
+    //validaçoes
     if (nome.value.trim().length < 1) { //trim: apagar espaços em brancos
         alert("Campo Obrigatório: Nome.");
         temErro = true;
@@ -57,86 +120,10 @@
     }
 });
 
-//Missão 1 - Cards
 
-//const cards = document.getElementById('cursos').querySelectorAll('.card');
+//MISSAO 4 - DESAFIOS EXTRAS
 
-
-// const cards = document.querySelectorAll('#cursos .card');
-
-// cards.forEach(card => {
-//     card.addEventListener('mouseover', () => {
-//         card.style.transform = 'scale(1.1)';
-//     });
-//     card.addEventListener('mouseout', () => {
-//         card.style.transform = 'scale(1.0)';
-//     });
-// });
-
-
-
-let cards = document.getElementById('cursos').querySelectorAll('.card'); // Chamar elemento
-
-cards.forEach(card => { //forEach: percorrer cada um
-    card.style.width = '250px'; //tamanho fixo
-    card.style.height = '350px'; //tamanho fixo
-   
-    let img = card.querySelector('img'); //chamar elemento
-    if (img) {
-        img.style.width = '100%'; //tamanho fixo
-        img.style.height = '40%'; //tamanho fixo
-    }
-
-    card.addEventListener('mouseover', () => { //evento pré-hover
-        card.style.transform = 'scale(1.1)'; 
-    });
-
-    card.addEventListener('mouseout', () => { //evento pós-hover
-        card.style.transform = 'scale(1.0)'; 
-    });
-});
-
-
-
-//ver tamanho/altura dos cards e imagens
-
-
-//Missão 1 - Lista de Cursos
-
-let list = document.getElementById('sobre').querySelector('ul'); //chamar elemento
-
-let item5 = document.createElement('li'); //criar item
-item5.textContent = 'Comunicação Digital';
-
-list.appendChild(item5); //adicionar item
-
-let item6 = document.createElement('li'); //criar item
-item6.textContent = 'Formação Formadores';
-
-list.appendChild(item6); //adicionar item
-
-
-//Missão 2 - Botão Voltar ao Top
-
-let button = document.createElement('button'); //criar
-button.textContent = 'Voltar ao Topo'; //texto do botão
-
-document.body.appendChild(button); 
-
-button.style.position = 'fixed';
-button.style.bottom = '20px';
-button.style.right = '20px';
-button.style.display = 'none'; //ocultar ao inicio
-
-window.onscroll = () => button.style.display = window.scrollY > 200 ? 'block' : 'none'; //scroll
-
-button.onclick = function() { //voltar ao topo
-    window.scrollTo(0, 0);
-}
-
-
-
-//Goolge  Maps
+//API GOOLE MAPS
 
 let mapaContainer = document.createElement('div'); // criar div para o mapa
 mapaContainer.id = 'mapa';
@@ -163,31 +150,26 @@ window.initMapa = function() { // inicializar mapa
 //Tentar Iframe + incorporar link como alternativa
 
 
+//OUTROS
 
+let navbar = document.querySelector('.navbar'); //chamar elemento
+navbar.classList.remove('navbar-light', 'bg-light'); //remover cor atual
+navbar.style.backgroundColor = '#4D6376'; //adicionar cor nova
 
+// Altera a cor do texto para branco em toda a navbar
+navbar.style.color = 'white';
 
+// Altera a cor do texto dos links (que ficam em cinza padrão)
+let navbarLinks = navbar.querySelectorAll('.nav-link');
+navbarLinks.forEach(link => {
+    link.style.color = 'white';
+});
 
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Altera a cor da marca 'Cesae Digital' para branco
+let navbarBrand = navbar.querySelector('.navbar-brand');
+if (navbarBrand) {
+    navbarBrand.style.color = 'white';
+}
 
 
 
