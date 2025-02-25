@@ -26,12 +26,12 @@
 
     let temErro = false;
 
-    if (nome.value.trim().length < 1) { //função trim: apagar espaços em brancos
+    if (nome.value.trim().length < 1) { //trim: apagar espaços em brancos
         alert("Campo Obrigatório: Nome.");
         temErro = true;
     }
 
-    if (!email.value.includes("@") || !email.value.includes(".")) { //função includes: caso exista os símbolos indicados
+    if (!email.value.includes("@") || !email.value.includes(".")) { //includes: caso exista os símbolos indicados
         alert("Campo Obrigatório: Inserir email válido.");
         temErro = true;
     }
@@ -46,7 +46,7 @@
         temErro = true;
     }
 
-    if (mensagem.value.trim().length < 1) { //função trim: apagar espaços em brancos
+    if (mensagem.value.trim().length < 1) { //trim: apagar espaços em brancos
         alert("Campo Obrigatório: Inserir uma Mensagem");
         temErro = true;
     }
@@ -72,53 +72,6 @@
 //         card.style.transform = 'scale(1.0)';
 //     });
 // });
-
-//alteração de cores
-
-
-
-
-
-
-
-document.body.style.backgroundColor = "#F4F4F4";  //cor corpo
-
-
-let sections = ['sobre', 'cursos', 'contato'];
-
-        sections.forEach(id => {
-        let section = document.getElementById(id);
-        section.style.border = "2px solid #4D6376";
-    });
-
-
-
-
-// function centralizarTitulos(id) {
-//     let titulo = document.querySelector(`#${id} h2`);
-//     if (titulo) {
-//       titulo.style.textAlign = 'center';
-//     }
-//   }
-  
-//   centralizarTitulos('sobre');
-//   centralizarTitulos('cursos');
-//   centralizarTitulos('contato');
-
-  let sections2 = ['sobre', 'cursos', 'contato'];
-
-sections.forEach(id => {
-    centralizarTitulos(id);
-});
-
-function centralizarTitulos(id) {
-    let titulo = document.querySelector(`#${id} h2`);
-    if (titulo) {
-        titulo.style.textAlign = 'center';
-    }
-}
-
-
 
 
 
@@ -166,9 +119,9 @@ list.appendChild(item6); //adicionar item
 //Missão 2 - Botão Voltar ao Top
 
 let button = document.createElement('button'); //criar
-button.textContent = 'Voltar ao Topo';
+button.textContent = 'Voltar ao Topo'; //texto do botão
 
-document.body.appendChild(button); //
+document.body.appendChild(button); 
 
 button.style.position = 'fixed';
 button.style.bottom = '20px';
@@ -177,10 +130,91 @@ button.style.display = 'none'; //ocultar ao inicio
 
 window.onscroll = () => button.style.display = window.scrollY > 200 ? 'block' : 'none'; //scroll
 
-//voltar ao topo
-button.onclick = function() {
+button.onclick = function() { //voltar ao topo
     window.scrollTo(0, 0);
 }
+
+
+
+//Goolge  Maps
+
+let mapaContainer = document.createElement('div'); // criar div para o mapa
+mapaContainer.id = 'mapa';
+mapaContainer.style.cssText = 'width: 50%; height: 300px; margin: 20px auto; border-radius: 8px;'; //personalizando
+
+// Selecionar o footer
+let rodape = document.querySelector('footer'); //selecionar footer
+rodape.appendChild(mapaContainer); //adicionar
+
+let scriptMaps = document.createElement('script'); // API Google Maps
+scriptMaps.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDT_QU3GEduXSGHxXX_KrbnBv7yNCnw2qI&callback=initMapa';
+scriptMaps.async = true;
+document.body.appendChild(scriptMaps);
+
+window.initMapa = function() { // inicializar mapa
+  let localizacaoCesae = { lat: 41.15843505032034, lng: -8.650307264711172 };
+  let mapa = new google.maps.Map(mapaContainer, {
+    center: localizacaoCesae,
+    zoom: 20,
+    mapId: '4504f8b37365c3d0',
+  });
+};
+
+//Tentar Iframe + incorporar link como alternativa
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Outras alterações
+
+document.body.style.backgroundColor = "#F4F4F4";  //cor corpo
+
+let sections = ['sobre', 'cursos', 'contato'];//borda
+        sections.forEach(id => {
+        let section = document.getElementById(id);
+        section.style.border = "2px solid #4D6376";
+    });
+
+
+let sections2 = ['sobre', 'cursos', 'contato'];
+
+    sections.forEach(id => {
+        centralizarTitulos(id);
+    });
+    
+    function centralizarTitulos(id) {
+        let titulo = document.querySelector(`#${id} h2`);
+        if (titulo) {
+            titulo.style.textAlign = 'center';
+        }
+    }   
 
 
 
