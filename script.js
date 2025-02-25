@@ -1,4 +1,6 @@
-//Trabalho Final JS Bruno França
+//Bem-vinda!
+
+//Trabalho Final EWEB Bruno França
 
 //MISSAO 1 - FORMULARIO, CARDS E LISTA
 
@@ -20,7 +22,7 @@
 
 //CARDS
 
-let cards = document.getElementById('cursos').querySelectorAll('.card'); // Chamar elemento
+let cards = document.getElementById('cursos').querySelectorAll('.card'); //chamar elemento
 
 cards.forEach(card => { //forEach: percorrer cada um
     card.style.width = '250px'; //tamanho fixo
@@ -123,7 +125,31 @@ button.onclick = function() { //funçao voltar ao topo
 
 //MISSAO 4 - DESAFIOS EXTRAS
 
-//API GOOLE MAPS
+//LORDE DO CARROSEL
+
+let carrosselImagens = [ 
+    "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/269562519/original/6a385a175ddbec3906a4710dd2e35befc7081f8b/provide-turn-key-software-development-services.png",
+    "https://static.vecteezy.com/system/resources/thumbnails/045/782/238/small_2x/a-woman-in-glasses-smiles-at-a-computer-monitor-in-a-room-photo.jpg",
+    "https://www.cesaedigital.pt/wp-content/uploads/2023/04/logo-1024x578.png"
+]; //array dde imagens do próprio HTML/Cards
+
+let imagemAtual = 0; 
+
+let img = document.createElement("img"); //criar elemento img
+img.src = carrosselImagens[imagemAtual]; //atribuir
+img.style.width = "100%"; //tamanho
+document.getElementById("sobre").appendChild(img); //adicinar
+
+
+function changeImage() { //mudar imagem
+    imagemAtual = (imagemAtual + 1) % carrosselImagens.length; //
+    img.src = carrosselImagens[imagemAtual]; //atualizar imagem
+}
+
+setInterval(changeImage, 3000); //contar e mudar 3s
+
+
+//IMPERADOR DAS APIS
 
 let mapaContainer = document.createElement('div'); // criar div para o mapa
 mapaContainer.id = 'mapa';
@@ -147,7 +173,7 @@ window.initMapa = function() { // inicializar mapa
   });
 };
 
-//Tentar Iframe + incorporar link como alternativa
+//Tentar Iframe + incorporar link como alternativa.
 
 
 //OUTROS
@@ -172,31 +198,42 @@ if (navbarBrand) {
 }
 
 
+//Adicionar Bordas
 
+let sections = ['sobre', 'cursos', 'contato']; //variável e array de seções
 
-//Outras alterações
-
-document.body.style.backgroundColor = "#F4F4F4";  //cor corpo
-
-let sections = ['sobre', 'cursos', 'contato'];//borda
-        sections.forEach(id => {
-        let section = document.getElementById(id);
-        section.style.border = "2px solid #4D6376";
-    });
-
-
-let sections2 = ['sobre', 'cursos', 'contato'];
-
-    sections.forEach(id => {
-        centralizarTitulos(id);
-    });
+sections.forEach(function(id) {  //forEach: percorrer cada item
+    let section = document.getElementById(id); //selecionar 
     
-    function centralizarTitulos(id) {
-        let titulo = document.querySelector(`#${id} h2`);
-        if (titulo) {
-            titulo.style.textAlign = 'center';
-        }
-    }   
+    if (section) { //ajustar caso exista
+        section.style.border = "2px solid #4D6376"; //adicionar borda
+    }
+});
+
+
+//Centralizar Titulos
+
+let sectionsII = ['sobre', 'cursos', 'contato']; //variável e array de seções
+
+sectionsII.forEach(function(id) { //forEach: percorrer cada item
+    centralizarTitulos(id); //chama a função para centralizar o título
+});
+
+function centralizarTitulos(id) { 
+    let titulo = document.getElementById(id).querySelector('h2'); //selecionar 
+    
+    if (titulo) { //ajustar caso exista
+        titulo.style.textAlign = 'center'; //centralizar o título
+    }
+}
+
+
+
+
+
+
+
+
 
 
 
