@@ -22,38 +22,38 @@
 
 //CARDS
 
-let cards = document.getElementById('cursos').querySelectorAll('.card'); //chamar elemento
+let cards = document.getElementById('cursos').querySelectorAll('.card'); //selecionar
 
 cards.forEach(card => { //forEach: percorrer cada um
     card.style.width = '250px'; //tamanho fixo
     card.style.height = '400px'; //tamanho fixo
    
-    let img = card.querySelector('img'); //chamar elemento
-    if (img) {
+    let img = card.querySelector('img'); //selecionar
+    if (img) { //verificar e ajustar
         img.style.width = '100%'; //tamanho fixo
         img.style.height = '40%'; //tamanho fixo
     }
 
-    card.addEventListener('mouseover', () => { //evento pré-hover
+    card.addEventListener('mouseover', () => { //evento aumentar
         card.style.transform = 'scale(1.1)'; 
     });
 
-    card.addEventListener('mouseout', () => { //evento pós-hover
+    card.addEventListener('mouseout', () => { //evento voltar ao normal
         card.style.transform = 'scale(1.0)'; 
     });
 });
 
 //LISTA
 
-let list = document.getElementById('sobre').querySelector('ul'); //chamar elemento
+let list = document.getElementById('sobre').querySelector('ul'); //selecionar
 
 let item5 = document.createElement('li'); //criar item
-item5.textContent = 'Comunicação Digital';
+item5.textContent = 'Comunicação Digital'; //denominaçao
 
 list.appendChild(item5); //adicionar item
 
 let item6 = document.createElement('li'); //criar item
-item6.textContent = 'Formação Formadores';
+item6.textContent = 'Formação Formadores'; //denominaçao
 
 list.appendChild(item6); //adicionar item
 
@@ -205,7 +205,7 @@ let sections = ['sobre', 'cursos', 'contato']; //variável e array de seções
 sections.forEach(function(id) {  //forEach: percorrer cada item
     let section = document.getElementById(id); //selecionar 
     
-    if (section) { //ajustar caso exista
+    if (section) { //verificar e ajustar
         section.style.border = "2px solid #4D6376"; //adicionar borda
     }
 });
@@ -222,7 +222,7 @@ sectionsII.forEach(function(id) { //forEach: percorrer cada item
 function centralizarTitulos(id) { 
     let titulo = document.getElementById(id).querySelector('h2'); //selecionar 
     
-    if (titulo) { //ajustar caso exista
+    if (titulo) { //verificar e ajustar
         titulo.style.textAlign = 'center'; //centralizar o título
     }
 }
